@@ -1,5 +1,5 @@
 # Modelo de Skill Alexa para integrar o ChatGPT da OpenAI
-Use o ChatGPT-4 na Alexa 😊  
+Use o ChatGPT-4 na Alexa  
 
 # Instruções
 - Crie uma conta e uma chave de autenticação de API na OpenAI: https://platform.openai.com/account/api-keys
@@ -12,12 +12,12 @@ Use o ChatGPT-4 na Alexa 😊
   - Em tipo de experiência selecione: Other > Custom > Alexa-hosted (Python)  
   - Hosting region: Pode deixar o padrão (US East (N. Virginia))
   - Templates: Clique em Import Skill
-  - Insira o endereço: https://github.com/alexandremendoncaalvaro/skill-alexa-chatgpt4.git
+  - Insira o endereço: https://github.com/takeonepilot/alexa-gpt-at.git
 
 - Vá na aba "Code"
-- Insira sua chave no código: lambda > lambda_function.py:
+- Insira sua chave no código: lambda > config.py.py:
   ```python
-  openai.api_key = "substitua-por-sua-api-key-da-openai"
+  API_KEY = "sua-chave"
   ```
 - Salve as alterações
 
