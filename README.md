@@ -3,7 +3,6 @@ Use o ChatGPT-4 na Alexa
 
 # Instruções
 - Crie uma conta e uma chave de autenticação de API na OpenAI: https://platform.openai.com/account/api-keys
-    - Você terá direito a um trial gratuito de 3 meses (ou limite de $18).
     - Documentação: https://platform.openai.com/docs/api-reference/authentication
 
 - Crie uma Skill Alexa-hosted (Python) na Alexa: https://developer.amazon.com/alexa/console/ask/create-new-skill
@@ -23,4 +22,4 @@ Use o ChatGPT-4 na Alexa
 
 - Faça Build do Modelo e Deploy do Código.
 
-- Seja feliz!
+
