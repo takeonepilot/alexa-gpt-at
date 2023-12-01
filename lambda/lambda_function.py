@@ -1,11 +1,12 @@
 import logging
 import ask_sdk_core.utils as ask_utils
-import openai
+from openai import OpenAI
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_model import Response
+from config import API_KEY
 
 # Set your OpenAI API key
 client = OpenAI(api_key=API_KEY)
@@ -89,10 +90,8 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
 
 def generate_gpt_response(query):
     try:
-        messages.append(
-            {"role": "user", "content": query},
-        )
-        response = openai.ChatCompletion.create(
+        messages.append({"role": "user", "content": query})
+        response = client.chat.completions.create(
             model="gpt-4",
             messages=messages,
             max_tokens=1000,
@@ -100,7 +99,8 @@ def generate_gpt_response(query):
             stop=None,
             temperature=0.5
         )
-        reply = response['choices'][0]['message']['content'].strip()
+        response_dict = response.model_dump()  # Converte a resposta para um dicionário
+        reply = response_dict['choices'][0]['message']['content'].strip()  # Acessa o texto da resposta
         messages.append({"role": "assistant", "content": reply})
         return reply
     except Exception as e:
